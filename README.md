@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simple To-Do App
 
 A lightweight to-do list app built with plain HTML, CSS, and JavaScript.
@@ -19,3 +20,6 @@ python -m http.server 8000
 ```
 
 Then visit http://localhost:8000
+=======
+# Minor-Project
+>>>>>>> e3263cfd29da45c89acfaed1c5702046a53d844a
