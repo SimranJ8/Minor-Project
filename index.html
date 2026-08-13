@@ -3,33 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple To-Do App</title>
+    <title>Focus Board</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="app">
-      <h1>To-Do List</h1>
+    <div class="page-shell">
+      <main class="app">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Today</p>
+            <h1>Focus Board</h1>
+          </div>
+          <div id="date-label" class="day-pill"></div>
+        </header>
 
-      <form id="todo-form" class="todo-form">
-        <input
-          type="text"
-          id="todo-input"
-          placeholder="Add a task..."
-          maxlength="120"
-          aria-label="To-do task"
-        />
-        <button type="submit">Add</button>
-      </form>
+        <section class="stats" aria-label="Task summary">
+          <div class="stat-card">
+            <span id="total-count">0</span>
+            <small>Total</small>
+          </div>
+          <div class="stat-card active">
+            <span id="active-count">0</span>
+            <small>Open</small>
+          </div>
+          <div class="stat-card done">
+            <span id="completed-count">0</span>
+            <small>Done</small>
+          </div>
+        </section>
 
-      <div class="toolbar" aria-label="Task filters">
-        <button type="button" class="filter-btn active" data-filter="all">All</button>
-        <button type="button" class="filter-btn" data-filter="active">Active</button>
-        <button type="button" class="filter-btn" data-filter="completed">Completed</button>
-      </div>
+        <form id="todo-form" class="todo-form">
+          <div class="input-row">
+            <input
+              type="text"
+              id="todo-input"
+              placeholder="Add a task..."
+              maxlength="120"
+              aria-label="To-do task"
+            />
+            <select id="priority-select" aria-label="Task priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
 
-      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
-      <p id="empty-state" class="empty-state">No tasks yet. Add one above.</p>
-    </main>
+          <div class="input-row lower-row">
+            <input type="date" id="due-date" aria-label="Due date" />
+            <button type="submit">Add task</button>
+          </div>
+        </form>
+
+        <div class="toolbar" aria-label="Task filters">
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="active">Active</button>
+          <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+          <button type="button" id="clear-completed" class="clear-btn">Clear completed</button>
+        </div>
+
+        <div class="search-box">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search tasks..."
+            aria-label="Search tasks"
+          />
+        </div>
+
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+        <p id="empty-state" class="empty-state">No matching tasks yet. Add one above.</p>
+      </main>
+    </div>
 
     <script src="script.js"></script>
   </body>
